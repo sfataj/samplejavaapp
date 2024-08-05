@@ -1,5 +1,5 @@
-FROM tomcat:8.5.40
-COPY target/sampleapp.war /usr/local/tomcat/webapps
+FROM openjdk:8
 EXPOSE 8080
-CMD /usr/local/tomcat/bin/catalina.sh run
+ADD target/sampleapp.war sampleapp.war
+ENTRYPOINT ["java",'-jar","/sampleapp.war"]
 #
